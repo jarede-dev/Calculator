@@ -8,17 +8,23 @@ body{
     flex-direction: column;
     border: 2px black solid;
     gap: 3px;
-    
 }
 
 .display{
     border: 2px cornflowerblue solid;
-    height: 40px;    
+    height: 40px;
+    display: flex;
+    justify-content:flex-end;    
+    align-items: flex-end;
 }
 .row{
     display: flex;
-    border: 2px coral solid;
     gap: 4px;
+}
+
+.row4{
+    display: flex;
+    justify-content: space-between;
 }
 
 .key{
@@ -49,4 +55,9 @@ body{
 
 .decimal{
     background-color: gray;
+    margin-left: -2.15px;
+}
+
+.none{
+    border: none;
 }

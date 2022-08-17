@@ -34,3 +34,19 @@ body{
 .bigKey{
     width: 40px;
 }
+
+.numbers{
+    background-color: orange;
+}
+
+.operators{
+    background-color: green;
+}
+
+.functions{
+    background-color: red;
+}
+
+.decimal{
+    background-color: gray;
+}

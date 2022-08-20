@@ -21,3 +21,22 @@ function operate(operator, num1, num2){
    }
    
 console.log(operate(multiply, 1, 4));
+
+// making display responsive
+const display = document.querySelector(".display");
+
+// added functionality
+document.querySelector(".numbers").onclick = function(){keyType(e)};
+function keyType(e){
+    return document.getElementById("display").innerHTML += document.querySelector(`.${e}`).innerText;
+}
+
+document.querySelector(".deleteValue").onclick = function(){deleteValue()};
+function deleteValue(){
+    return document.getElementById("display").innerHTML -= document.getElementById("display").innerHTML;
+}
+
+document.querySelector(".clearDisplay").onclick = function(){clearDisplay()};
+function clearDisplay(){
+    return window.location.reload();
+}

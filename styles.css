@@ -8,10 +8,11 @@ body{
     flex-direction: column;
     border: 2px black solid;
     gap: 3px;
+    background-color: #D3D3D3;
 }
 
 .display{
-    border: 2px cornflowerblue solid;
+    border: 2px #373737 solid;
     height: 40px;
     display: flex;
     justify-content:flex-end;    
@@ -28,7 +29,7 @@ body{
 }
 
 .key{
-    border: 2px cornflowerblue solid;
+    border: 2px #373737 solid;
     height: 20px;
     width: 20px;
     display: flex;
@@ -42,15 +43,15 @@ body{
 }
 
 .numbers{
-    background-color: orange;
+    background-color: gray;
 }
 
 .operators{
-    background-color: green;
+    background-color: #414141;
 }
 
 .functions{
-    background-color: red;
+    background-color: #242424;
 }
 
 .decimal{

@@ -1,3 +1,4 @@
+// selecting the buttons
 const buttons = document.querySelectorAll("button");
 const current = document.querySelector(".current");
 const previous = document.querySelector(".previous");
@@ -7,6 +8,8 @@ let previousValue = 0;
 let finalValue = null;
 let operator = null;
 
+
+// populates the display
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     if (button.id === "number") {
@@ -69,7 +72,7 @@ buttons.forEach((button) => {
   });
 });
 
-
+// operate function do the operations in the switch satement
 function operate(firstNum, nextNum, operator) {
   switch (operator) {
     case "+":

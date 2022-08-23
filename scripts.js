@@ -3,8 +3,8 @@ const buttons = document.querySelectorAll("button");
 const current = document.querySelector(".current");
 const previous = document.querySelector(".previous");
 
-let currentValue = "";
-let previousValue = "";
+let currentValue = 0;
+let previousValue = 0;
 let finalValue = null;
 let operator = null;
 
@@ -18,18 +18,18 @@ buttons.forEach((button) => {
 
       current.innerText = currentValue;
     } else if (button.id === "operator") {
-      if ((operator !== null) && (currentValue === "")) {
-        currentValue = "";
+      if ((operator !== null) && (currentValue === 0)) {
+        currentValue = 0;
       } else if (operator === null) {
         previousValue = currentValue + finalValue;
-        currentValue = "";
+        currentValue = 0;
         operator = button.innerText;
 
         previous.innerText += current.innerText + `${button.innerText}`;
         current.innerText = currentValue;
       } else {
         previousValue = operate(previousValue, currentValue, operator);
-        currentValue = "";
+        currentValue = 0;
         operator = button.innerText;
 
         previous.innerText += current.innerText + `${button.innerText}`;
@@ -48,8 +48,8 @@ buttons.forEach((button) => {
         return currentValue;
       } else {
         finalValue = operate(previousValue, currentValue, operator);
-        currentValue = "";
-        previousValue = "";
+        currentValue = 0;
+        previousValue = 0;
         operator = null;
 
         current.innerText = finalValue;
@@ -59,8 +59,8 @@ buttons.forEach((button) => {
       currentValue = Number(currentValue.toString().slice(0, -1));
       current.innerText = currentValue;
     } else if (button.id === "clear") {
-      currentValue = "";
-      previousValue = "";
+      currentValue = 0;
+      previousValue = 0;
       finalValue = null;
       operator = null;
 
@@ -72,8 +72,7 @@ buttons.forEach((button) => {
   });
 });
 
-
-// operate function do the operations in the switch satement
+// operate function do the operations in the switch statement
 function operate(firstNum, nextNum, operator) {
   switch (operator) {
     case "+":

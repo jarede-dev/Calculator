@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles.css">
-    <script src="scripts.js" deter></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Calculator</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <div id="container">
-        <div class="display"> <p id="display">  </p> </div>
-        <div class="row row1">
-            <button class="key numbers key7" onclick="keyType('key7')">7</button>
-            <button class="key numbers key8" onclick="keyType('key8')">8</button>
-            <button class="key numbers key9" onclick="keyType('key9')">9</button>
-            <button class="key bigKey functions deleteValue" onclick="deleteValue()">DEL</button>
-            <button class="key bigKey functions clearDisplay" onclick="clearDisplay()">AC</button>
-        </div>
-        <div class="row row2">
-            <button class="key numbers key4" onclick="keyType('key4')">4</button>
-            <button class="key numbers key5" onclick="keyType('key5')">5</button>
-            <button class="key numbers key6" onclick="keyType('key6')">6</button>
-            <button class="key bigKey operators keyx">x</button>
-            <button class="key bigKey operators keyt">÷</button>
-        </div>
-        <div class="row row3">
-            <button class="key numbers key1" onclick="keyType('key1')">1</button>
-            <button class="key numbers key2" onclick="keyType('key2')">2</button>
-            <button class="key numbers key3" onclick="keyType('key3')">3</button>
-            <button class="key bigKey operators">+</button>
-            <button class="key bigKey operators">-</button>
-        </div>
-        <div class="row row4">
-            <button class="key numbers key0" onclick="keyType('key0')">0</button>
-            <button class="key decimal keyDot" onclick="keyType('keyDot')">.</button>
-            <div class="key none"></div>
-            <div class="key bigKey none"></div>
-            <button class="key bigKey operators">=</button>
-        </div>
+      <div class="display">
+        <div class="previous"></div>
+          <div class="current"> 0 </div>
+      </div>
+      <div class="row row1">
+        <button class="key numbers key7" id="number">7</button>
+        <button class="key numbers key8" id="number">8</button>
+        <button class="key numbers key9" id="number">9</button>
+        <button class="key bigKey functions deleteValue" id="delete">DEL</button>
+        <button class="key bigKey functions clearDisplay" id="clear">AC</button>
+      </div>
+      <div class="row row2">
+        <button class="key numbers key4" id="number">4</button>
+        <button class="key numbers key5" id="number">5</button>
+        <button class="key numbers key6" id="number">6</button>
+        <button class="key bigKey operators keyx" id="operator">x</button>
+        <button class="key bigKey operators keyt" id="operator">÷</button>
+      </div>
+      <div class="row row3">
+        <button class="key numbers key1" id="number">1</button>
+        <button class="key numbers key2" id="number">2</button>
+        <button class="key numbers key3" id="number">3</button>
+        <button class="key bigKey operators" id="operator">+</button>
+        <button class="key bigKey operators" id="operator">-</button>
+      </div>
+      <div class="row row4">
+        <button class="key numbers key0" id="number">0</button>
+        <button class="key decimal keyDot" id="decimal">.</button>
+        <div class="key none"></div>
+        <div class="key bigKey none"></div>
+        <button class="key bigKey operators" id="equals">=</button>
+      </div>
     </div>
-</body>
+
+    <script src="scripts.js" deter></script>
+    
+  </body>
+
 </html>

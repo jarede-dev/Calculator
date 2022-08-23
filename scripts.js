@@ -1,42 +1,88 @@
-// 4 operator function
-function add(num1, num2){
-    return num1 + num2;
-   }
-   
-function subtract(num1, num2){
-    return num1 - num2;
-   }
-   
-function multiply(num1, num2){
-    return num1 * num2;
-   }
-   
-function divide(num1, num2){
-    return num1 / num2;
-   }
-   
-// operate function runs the operator functions with the numbers
-function operate(operator, num1, num2){
-    return operator(num1, num2);
-   }
-   
-console.log(operate(multiply, 1, 4));
+const buttons = document.querySelectorAll("button");
+const current = document.querySelector(".current");
+const previous = document.querySelector(".previous");
 
-// making display responsive
-const display = document.querySelector(".display");
+let currentValue = 0;
+let previousValue = 0;
+let finalValue = null;
+let operator = null;
 
-// added functionality
-document.querySelector(".numbers").onclick = function(){keyType(e)};
-function keyType(e){
-    return document.getElementById("display").innerHTML += document.querySelector(`.${e}`).innerText;
-}
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (button.id === "number") {
+      finalValue = null;
+      currentValue = Number(currentValue + button.innerText);
 
-document.querySelector(".deleteValue").onclick = function(){deleteValue()};
-function deleteValue(){
-    return document.getElementById("display").innerHTML -= document.getElementById("display").innerHTML;
-}
+      current.innerText = currentValue;
+    } else if (button.id === "operator") {
+      if ((operator !== null) && (currentValue === 0)) {
+        currentValue = 0;
+      } else if (operator === null) {
+        previousValue = currentValue + finalValue;
+        currentValue = 0;
+        operator = button.innerText;
 
-document.querySelector(".clearDisplay").onclick = function(){clearDisplay()};
-function clearDisplay(){
-    return window.location.reload();
+        previous.innerText += current.innerText + `${button.innerText}`;
+        current.innerText = currentValue;
+      } else {
+        previousValue = operate(previousValue, currentValue, operator);
+        currentValue = 0;
+        operator = button.innerText;
+
+        previous.innerText += current.innerText + `${button.innerText}`;
+        current.innerText = currentValue;
+      }
+    } else if (button.id === "decimal") {
+      if (currentValue.toString().includes(".")) {
+        return currentValue;
+      } else {
+        currentValue += ".";
+      }
+
+      current.innerText = currentValue;
+    } else if (button.id === "equals") {
+      if (operator === null) {
+        return currentValue;
+      } else {
+        finalValue = operate(previousValue, currentValue, operator);
+        currentValue = 0;
+        previousValue = 0;
+        operator = null;
+
+        current.innerText = finalValue;
+        previous.innerText = null;
+      }
+    } else if (button.id === "delete") {
+      currentValue = Number(currentValue.toString().slice(0, -1));
+      current.innerText = currentValue;
+    } else if (button.id === "clear") {
+      currentValue = 0;
+      previousValue = 0;
+      finalValue = null;
+      operator = null;
+
+      current.innerText = null;
+      previous.innerText = null;
+    }
+
+    console.log(previousValue, currentValue, finalValue, operator)
+  });
+});
+
+
+function operate(firstNum, nextNum, operator) {
+  switch (operator) {
+    case "+":
+      return firstNum + nextNum;
+      break;
+    case "-":
+      return firstNum - nextNum;
+      break;
+    case "x":
+      return firstNum * nextNum;
+      break;
+    case "÷":
+      return firstNum / nextNum;
+      break;
+  }
 }

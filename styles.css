@@ -2,7 +2,7 @@ body {
     display: flex;
     justify-content: center;
 }
-  
+
 #container {
     display: flex;
     flex-direction: column;
@@ -78,4 +78,3 @@ button:active {
     box-shadow: 0 1px #666;
     transform: translateY(1px);
 }
-  

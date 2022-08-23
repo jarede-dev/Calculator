@@ -3,8 +3,8 @@ const buttons = document.querySelectorAll("button");
 const current = document.querySelector(".current");
 const previous = document.querySelector(".previous");
 
-let currentValue = 0;
-let previousValue = 0;
+let currentValue = "";
+let previousValue = "";
 let finalValue = null;
 let operator = null;
 
@@ -18,18 +18,18 @@ buttons.forEach((button) => {
 
       current.innerText = currentValue;
     } else if (button.id === "operator") {
-      if ((operator !== null) && (currentValue === 0)) {
-        currentValue = 0;
+      if ((operator !== null) && (currentValue === "")) {
+        currentValue = "";
       } else if (operator === null) {
         previousValue = currentValue + finalValue;
-        currentValue = 0;
+        currentValue = "";
         operator = button.innerText;
 
         previous.innerText += current.innerText + `${button.innerText}`;
         current.innerText = currentValue;
       } else {
         previousValue = operate(previousValue, currentValue, operator);
-        currentValue = 0;
+        currentValue = "";
         operator = button.innerText;
 
         previous.innerText += current.innerText + `${button.innerText}`;
@@ -48,8 +48,8 @@ buttons.forEach((button) => {
         return currentValue;
       } else {
         finalValue = operate(previousValue, currentValue, operator);
-        currentValue = 0;
-        previousValue = 0;
+        currentValue = "";
+        previousValue = "";
         operator = null;
 
         current.innerText = finalValue;
@@ -59,8 +59,8 @@ buttons.forEach((button) => {
       currentValue = Number(currentValue.toString().slice(0, -1));
       current.innerText = currentValue;
     } else if (button.id === "clear") {
-      currentValue = 0;
-      previousValue = 0;
+      currentValue = "";
+      previousValue = "";
       finalValue = null;
       operator = null;
 

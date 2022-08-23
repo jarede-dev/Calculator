@@ -72,6 +72,7 @@ buttons.forEach((button) => {
   });
 });
 
+
 // operate function do the operations in the switch satement
 function operate(firstNum, nextNum, operator) {
   switch (operator) {
